@@ -1,0 +1,116 @@
+.cart {
+    margin-top: 5rem;
+}
+
+.cart .row {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.cart .row form {
+    flex: 1 1 40rem;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    border: 0.5rem solid rgba(0, 0, 0, .1);
+    background: #fff;
+    border-radius: .5rem;
+}
+
+.cart .row form .box {
+    padding: 1rem;
+    font-size: 1.7rem;
+    columns: #333;
+    text-transform: none;
+    border: 0.5rem solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.cart form span{
+    color: var(--verde);;
+}
+
+.cart form label{
+    padding-bottom: 0.5rem;
+    font-size: 1.7rem;
+    color: #333;
+}
+
+.cart .row form .box:focus {
+   border-color: var(--verde);
+}
+
+.cart .content h3{
+    padding: 20rem;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #999;
+ }
+
+ .cart .row form #cepError {
+    color: #e74c3c; /* Cor vermelha */
+    font-size: 1.5rem; /* Tamanho da fonte */
+    margin-top: -1rem; /* Ajuste de posição superior */
+    margin-bottom: 1.5rem; /* Espaço inferior */
+    display: none; /* Inicia oculto */
+}
+
+.cart .row form #cepError.show {
+    display: block; /* Mostra o label quando a classe 'show' é adicionada */
+}
+
+.cart .row form .box.invalid {
+    border-color: #e74c3c; /* Borda vermelha */
+}
+
+.cart .row form .btn {
+    margin-top: 2rem;
+}
+
+/* Exemplo de CSS que já pode estar sendo usado na página de produtos */
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.box {
+    width: 200px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+}
+
+.content h3 {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.price {
+    color: #FF6347;
+    font-weight: bold;
+}
+
+.discount {
+    position: absolute;
+    background-color: #FF6347;
+    color: white;
+    padding: 5px;
+    top: 10px;
+    left: 10px;
+}
+
+
+
+
+
