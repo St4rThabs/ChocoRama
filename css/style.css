@@ -25,13 +25,6 @@ html {
     background-color: #fdfdf4;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-
 section {
     height: 100vh;
     padding: 2rem 9%;
