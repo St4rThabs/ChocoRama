@@ -4,29 +4,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnEnviar = document.getElementById('btnEnviar');
     const cepForm = document.getElementById('cepForm');
 
-    btnEnviar.addEventListener('click', function (event) {
-        event.preventDefault();
+    function validarCep(cep) {
+        return /^\d{8}$/.test(cep);
+    }
 
-        const cep = cepInput.value.trim();
+    function exibirErro(mensagem) {
+        cepError.textContent = mensagem;
+        cepError.classList.add('show');
+        cepInput.classList.add('invalid');
+    }
 
-        if (!/^\d{8}$/.test(cep)) {
-            cepError.textContent = "CEP inválido! Digite 8 números.";
-            cepError.classList.add('show');
-            cepInput.classList.add('invalid');
-            return; 
-        }
-
+    function limparErro() {
         cepError.textContent = "";
         cepError.classList.remove('show');
         cepInput.classList.remove('invalid');
+    }
+
+    btnEnviar.addEventListener('click', function (event) {
+        event.preventDefault();
+        const cep = cepInput.value.trim();
+
+        if (!validarCep(cep)) {
+            exibirErro("CEP inválido! Digite 8 números.");
+            return; 
+        }
+
+        limparErro();
 
         fetch(`https://viacep.com.br/ws/${cep}/json/`)
             .then(response => response.json())
             .then(data => {
                 if (data.erro) {
-                    cepError.textContent = "CEP não encontrado!";
-                    cepError.classList.add('show');
-                    cepInput.classList.add('invalid');
+                    exibirErro("CEP não encontrado!");
                 } else {
                     const endereco = `
                         Endereço Encontrado:
@@ -48,9 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => {
                 console.error("Erro ao consultar CEP:", error);
-                cepError.textContent = "Erro ao consultar o CEP. Tente novamente.";
-                cepError.classList.add('show');
-                cepInput.classList.add('invalid');
+                exibirErro("Erro ao consultar o CEP. Tente novamente.");
             });
     });
 });
